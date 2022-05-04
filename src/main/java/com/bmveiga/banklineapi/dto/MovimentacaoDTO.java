@@ -1,50 +1,17 @@
-package com.bmveiga.banklineapi.model;
-
-import java.time.LocalDateTime;
+package com.bmveiga.banklineapi.dto;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 import com.bmveiga.banklineapi.model.enums.MovimentacaoEnums;
 
-@Entity
-@Table(name = "tab_movimentacao")
-public class Movimentacao {
+public class MovimentacaoDTO {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private LocalDateTime dataHora;
 	private String descricao;
 	private Double valor;
-	
-	@Enumerated(EnumType.STRING)
 	private MovimentacaoEnums tipo;
-	
-	@Column(name = "id_conta")
 	private Integer idConta;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public LocalDateTime getDataHora() {
-		return dataHora;
-	}
-
-	public void setDataHora(LocalDateTime dataHora) {
-		this.dataHora = dataHora;
-	}
 
 	public String getDescricao() {
 		return descricao;
@@ -69,11 +36,11 @@ public class Movimentacao {
 	public void setTipo(MovimentacaoEnums tipo) {
 		this.tipo = tipo;
 	}
-	
+
 	public Integer getIdConta() {
 		return idConta;
 	}
-	
+
 	public void setIdConta(Integer idConta) {
 		this.idConta = idConta;
 	}

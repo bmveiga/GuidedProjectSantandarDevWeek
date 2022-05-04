@@ -1,11 +1,28 @@
 package com.bmveiga.banklineapi.model;
 
-public class Correntista {
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name = "tab_correntista")
+public class Correntista {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Column(length = 20)
 	private String cpf;
+	
+	@Column(length = 60)
 	private String nome;
 
+	@Embedded
 	private Conta conta;
 
 	public Conta getConta() {
@@ -24,11 +41,11 @@ public class Correntista {
 		this.id = id;
 	}
 
-	public String getCpg() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpg(String cpg) {
+	public void setCpf(String cpg) {
 		this.cpf = cpg;
 	}
 
