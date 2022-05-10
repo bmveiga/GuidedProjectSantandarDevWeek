@@ -2,6 +2,8 @@ package com.bmveiga.banklineapi.controller;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,5 +37,9 @@ public class MovimentacaoController {
 		movimentacaoService.save(movimentacao);
 	}
 	
-	
+	@GetMapping("/{idConta}")
+	public List<Movimentacao> findAll(@PathParam("idConta") Integer idConta) {
+		return repository.findByIdConta(idConta);
+	}
+		
 }
